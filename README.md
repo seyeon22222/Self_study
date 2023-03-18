@@ -1,3 +1,3 @@
-# Self_study
+# 알고리즘 스터디(매주 월요일 체크)
 
-Self Study with team
+문제집 링크 - https://github.com/encrypted-def/basic-algo-lecture/blob/master/workbook.md
