@@ -39,11 +39,9 @@ def re_arr():
                     arr[j][i] = "."
                     break
 
-
 arr = [list(input()) for _ in range(12)]
 ans = 0
 while True:
-
     q = deque()
     check = 0
     for i in range(12):
