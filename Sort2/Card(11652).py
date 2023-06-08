@@ -15,5 +15,6 @@ for _ in range(n):
 #key=lambda를 통해서 각 쌍을 정렬할 값을 지정하는것으로
 #-x[1]을 통해서 value값을 내림차순으로 정렬하고
 #x[0]을 통해서 key값을 오름차순으로 정렬을 진행
-arr = sorted(arr.items(), key=lambda x: (-x[1], x[0]))
+arr = sorted(arr.items(), key=lambda x: (-x[1], x[0])
+             )
 print(arr[0][0])
