@@ -1,17 +1,9 @@
 from collections import deque
 from itertools import permutations
 
-dx = [-1, 1, 0, 0, 0, 0]
-dy = [0, 0, -1, 1, 0, 0]
-dz = [0, 0, 0, 0, -1, 1]
-
-
-cube = [[list(map(int, input().split())) for _ in range(5)] for _ in range(5)] # 입력 배열
-visited = [[[0] * 5 for _ in range(5)] for _ in range(5)] # bfs를 위한 방문배열
-visited_num = 0
-ans = float('inf')
 
 def check_ans():
+    # 순열로 5! = 120번 반복문 실행
     for combination in permutations(range(5), 5):
         set_cube(combination, 0)
     print(ans if ans != float('inf') else -1)
@@ -24,8 +16,11 @@ def set_cube(combination, idx):
     if idx == 5:
         check_cube(combination)
         return
+    # 모든 경우의 수를 도는 반복문
+    # 4번을 돌기 때문에, 90도씩 모든 경우를 도는경우
+    # 5! * 4**5 = 122880번 반목
     for _ in range(4):
-        rotate(combination[idx])
+        cube[combination[idx]] = rotate(cube[combination[idx]])
         set_cube(combination, idx + 1)
 
 
@@ -38,8 +33,7 @@ def check_cube(combination):
     if temp_cube[0][0][0] != 1 or temp_cube[4][4][4] != 1:
         return
     visited_num += 1
-    arr = [0,0,0]
-    q = deque([arr + [0]])
+    q = deque([[0, 0, 0, 0]])
     visited[0][0][0] = visited_num
     while q:
         z, y, x, cnt = q.pop()
@@ -57,27 +51,19 @@ def check_cube(combination):
                 q.appendleft((nz, ny, nx, cnt + 1))
 
 
-def check_valid(z, y, x, temp_cube):
-    if z < 0 or y < 0 or x < 0 or z >= 5 or y >= 5 or x >= 5:
-        return False
-    elif temp_cube[z][y][x] == 0:
-        return False
-    elif visited[z][y][x] == visited_num:
-        return False
-    return True
+def rotate(cube):
+    temp = [[0] * 5 for _ in range(5)]
+    for i in range(5):
+        for j in range(5):
+            temp[j][4 - i] = cube[i][j]
+    return temp
 
-def rotate(idx):
-    global cube
 
-    tmp = []
-    for row in cube[idx]:
-        tmp_row = []
-        for num in row:
-            tmp_row.append(num)
-        tmp.append(tmp_row)
-
-    for x in range(5):
-        for y in range(5):
-            cube[idx][4 - x][y] = tmp[y][x]
-
+dx = [-1, 1, 0, 0, 0, 0]
+dy = [0, 0, -1, 1, 0, 0]
+dz = [0, 0, 0, 0, -1, 1]
+cube = [[list(map(int, input().split())) for _ in range(5)] for _ in range(5)] # 입력 배열
+visited = [[[0] * 5 for _ in range(5)] for _ in range(5)] # bfs를 위한 방문배열
+visited_num = 0
+ans = float('inf')
 check_ans()
