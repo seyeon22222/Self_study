@@ -1,0 +1,18 @@
+{
+	"files.associations": {
+		"vector": "cpp",
+		"algorithm": "cpp",
+		"iostream": "cpp",
+		"string": "cpp",
+		"queue": "cpp",
+		"ostream": "cpp",
+		"ios": "cpp",
+		"__bit_reference": "cpp",
+		"__string": "cpp",
+		"deque": "cpp",
+		"string_view": "cpp",
+		"utility": "cpp",
+		"__config": "cpp",
+		"set": "cpp"
+	}
+}

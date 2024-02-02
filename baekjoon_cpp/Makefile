@@ -6,11 +6,11 @@ LOG   := printf "[$(CYAN)INFO$(RESET)] %s\n"
 
 ## file
 # HEADERS = PmergeMe.hpp
-SRCS = 1978.cpp
+SRCS = 16724.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 ## compile
-CXX=	c++ -fsanitize=address -g
+CXX=	c++
 #-fsanitize=address -g
 CXXFLAGS = -std=c++17
 
