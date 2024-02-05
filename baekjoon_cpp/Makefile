@@ -6,7 +6,7 @@ LOG   := printf "[$(CYAN)INFO$(RESET)] %s\n"
 
 ## file
 # HEADERS = PmergeMe.hpp
-SRCS = 1929.cpp
+SRCS = 15829.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 ## compile
